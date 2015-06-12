@@ -1,0 +1,11 @@
+﻿<Window x:Class="AnkiTranslate.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow" Height="324.925" Width="496.343">
+    <Grid Margin="0,0,3.6,-0.8">
+        <Button Content="AnkiTranslate!" HorizontalAlignment="Left" Height="42" Margin="118,231,0,0" VerticalAlignment="Top" Width="287" Click="Translate_Click" />
+        <Label Content="Input .txt file from file editor.  &#xD;&#xA;Add words / phrases you would like added and separate each new &#xD;&#xA;entry with a new line. " HorizontalAlignment="Left" Margin="24,60,0,0" VerticalAlignment="Top" Width="412" Height="95"/>
+        <Label Background="DimGray" Name="MsgBoxLabel" Content="" HorizontalAlignment="Left" Margin="61,160,0,0" VerticalAlignment="Top" Height="48" Width="344"/>
+
+    </Grid>
+</Window>

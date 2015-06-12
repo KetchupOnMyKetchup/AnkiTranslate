@@ -1,0 +1,13 @@
+c:\users\crystal\documents\visual studio 2013\Projects\AnkiTranslate\AnkiTranslate\bin\Debug\AnkiTranslate.exe.config
+c:\users\crystal\documents\visual studio 2013\Projects\AnkiTranslate\AnkiTranslate\bin\Debug\AnkiTranslate.exe
+c:\users\crystal\documents\visual studio 2013\Projects\AnkiTranslate\AnkiTranslate\bin\Debug\AnkiTranslate.pdb
+c:\users\crystal\documents\visual studio 2013\Projects\AnkiTranslate\AnkiTranslate\obj\Debug\AnkiTranslate.csprojResolveAssemblyReference.cache
+c:\users\crystal\documents\visual studio 2013\Projects\AnkiTranslate\AnkiTranslate\obj\Debug\MainWindow.baml
+c:\users\crystal\documents\visual studio 2013\Projects\AnkiTranslate\AnkiTranslate\obj\Debug\MainWindow.g.cs
+c:\users\crystal\documents\visual studio 2013\Projects\AnkiTranslate\AnkiTranslate\obj\Debug\App.g.cs
+c:\users\crystal\documents\visual studio 2013\Projects\AnkiTranslate\AnkiTranslate\obj\Debug\AnkiTranslate_MarkupCompile.cache
+c:\users\crystal\documents\visual studio 2013\Projects\AnkiTranslate\AnkiTranslate\obj\Debug\AnkiTranslate.g.resources
+c:\users\crystal\documents\visual studio 2013\Projects\AnkiTranslate\AnkiTranslate\obj\Debug\AnkiTranslate.Properties.Resources.resources
+c:\users\crystal\documents\visual studio 2013\Projects\AnkiTranslate\AnkiTranslate\obj\Debug\AnkiTranslate.csproj.GenerateResource.Cache
+c:\users\crystal\documents\visual studio 2013\Projects\AnkiTranslate\AnkiTranslate\obj\Debug\AnkiTranslate.exe
+c:\users\crystal\documents\visual studio 2013\Projects\AnkiTranslate\AnkiTranslate\obj\Debug\AnkiTranslate.pdb
