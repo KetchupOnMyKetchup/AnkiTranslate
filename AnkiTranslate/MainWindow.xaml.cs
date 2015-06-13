@@ -1,6 +1,9 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
+using System.Web;
 using System.Windows;
 using Microsoft.Win32;
+using System.Xml.Linq;
 
 namespace AnkiTranslate
 {
@@ -21,21 +24,17 @@ namespace AnkiTranslate
 
             if (userConfirmation != true) return;
             string file = dialog.FileName;
+
             try
             {
-                // save file into string
-                string text = File.ReadAllText(file);
-
-                // display file name
+                ConfigClass.TextToTranslate = File.ReadAllText(file);
                 MsgBoxLabel.Content = file;
             }
-            catch (IOException)
-            {
-
-            }
+            catch (IOException) { throw new Exception("Something went wrong, eh?"); }
 
 
             // google translate API work
+            ConfigClass.TranslatedText = new MicrosoftTranslator().Translate();
 
             // parse translator API work + initial values into anki format
 
@@ -44,7 +43,7 @@ namespace AnkiTranslate
             // export .txt file
 
             // display success message on textbox
-            
+
         }
     }
 }
