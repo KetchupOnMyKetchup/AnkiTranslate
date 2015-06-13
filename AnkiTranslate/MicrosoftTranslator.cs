@@ -12,10 +12,10 @@ namespace AnkiTranslate
     {
         public string Translate()
         {
-            string clientID = "AnkiTranslator";
-            string clientSecret = "ctuTm9MHBBlJdhr9zRmCIuKbTfxeb/RxhFXKNKZ7r+s=";
+            const string clientID = "AnkiTranslator";
+            const string clientSecret = "ctuTm9MHBBlJdhr9zRmCIuKbTfxeb/RxhFXKNKZ7r+s=";
+            const string strTranslatorAccessURI = "https://datamarket.accesscontrol.windows.net/v2/OAuth2-13";
 
-            String strTranslatorAccessURI = "https://datamarket.accesscontrol.windows.net/v2/OAuth2-13";
             String strRequestDetails = string.Format("grant_type=client_credentials&client_id={0}&client_secret={1}&scope=http://api.microsofttranslator.com", HttpUtility.UrlEncode(clientID), HttpUtility.UrlEncode(clientSecret));
 
             System.Net.WebRequest webRequest = System.Net.WebRequest.Create(strTranslatorAccessURI);
@@ -38,20 +38,20 @@ namespace AnkiTranslate
             string headerValue = "Bearer " + token.access_token;
 
             // User input text to translate plus chosen TO and FROM languages 
-            string txtToTranslate = ConfigClass.TextToTranslate;
             string uri = "http://api.microsofttranslator.com/v2/Http.svc/Translate?text=" +
-                HttpUtility.UrlEncode(txtToTranslate) + "&from=en&to=es";
+                HttpUtility.UrlEncode(ConfigClass.TextToTranslate) + "&from=en&to=es";
             System.Net.WebRequest translationWebRequest = System.Net.WebRequest.Create(uri);
             translationWebRequest.Headers.Add("Authorization", headerValue);
             System.Net.WebResponse response = null;
             response = translationWebRequest.GetResponse();
             Stream stream = response.GetResponseStream();
 
-            System.Text.Encoding encode = System.Text.Encoding.GetEncoding("utf-8");
+            Encoding encode = Encoding.GetEncoding("utf-8");
             var translatedStream = new StreamReader(stream, encode);
             System.Xml.XmlDocument xTranslation = new System.Xml.XmlDocument();
             xTranslation.LoadXml(translatedStream.ReadToEnd());
-            return ConfigClass.TranslatedText = xTranslation.InnerText;
+
+            return xTranslation.InnerText;
         }
     }
 }

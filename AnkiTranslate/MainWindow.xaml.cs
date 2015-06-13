@@ -27,18 +27,25 @@ namespace AnkiTranslate
 
             try
             {
+                // Made global variable and properties for text to translate / translated output
                 ConfigClass.TextToTranslate = File.ReadAllText(file);
                 MsgBoxLabel.Content = file;
             }
             catch (IOException) { throw new Exception("Something went wrong, eh?"); }
 
+            // Microsfot translate work. Don't need to pass anything in because its saved in global variable. 
+            ConfigClass.TranslatedText = new MicrosoftTranslator().Translate(); 
 
-            // google translate API work
-            ConfigClass.TranslatedText = new MicrosoftTranslator().Translate();
+            // Choose path 
+            var saveDialog = new SaveFileDialog { Filter = "Text Files (.txt)|*.txt", FilterIndex = 1};
+            bool? userSaveConfirmation = saveDialog.ShowDialog();
 
-            // parse translator API work + initial values into anki format
-
+            if (userSaveConfirmation != true) return;
+            //string savePath = "@" + dialog.FileName;
+            string savePath = @"C:\Users\Crystal\Desktop\tester.txt";
+            
             // native windows save file location option
+            File.WriteAllText(savePath, ConfigClass.TranslatedText);
 
             // export .txt file
 
