@@ -19,11 +19,11 @@ namespace AnkiTranslate
         private void Translate_Click(object sender, RoutedEventArgs e)
         {
             // Create an instance of the open file dialog box + force them to only try and open TXT files!!!
-            var dialog = new OpenFileDialog {Filter = "Text Files (.txt)|*.txt", FilterIndex = 1, Multiselect = true};
-            bool? userConfirmation = dialog.ShowDialog();
+            var openFileDialog = new OpenFileDialog {Filter = "Text Files (.txt)|*.txt", FilterIndex = 1, Multiselect = true};
+            bool? userConfirmation = openFileDialog.ShowDialog();
 
             if (userConfirmation != true) return;
-            string file = dialog.FileName;
+            string file = openFileDialog.FileName;
 
             try
             {
@@ -34,20 +34,18 @@ namespace AnkiTranslate
             catch (IOException) { throw new Exception("Something went wrong, eh?"); }
 
             // Microsfot translate work. Don't need to pass anything in because its saved in global variable. 
-            ConfigClass.TranslatedText = new MicrosoftTranslator().Translate(); 
+            ConfigClass.TranslatedText = new MicrosoftTranslator().Translate();
 
-            // Choose path 
+            // native windows save file location option
             var saveDialog = new SaveFileDialog { Filter = "Text Files (.txt)|*.txt", FilterIndex = 1};
             bool? userSaveConfirmation = saveDialog.ShowDialog();
 
             if (userSaveConfirmation != true) return;
-            //string savePath = "@" + dialog.FileName;
-            string savePath = @"C:\Users\Crystal\Desktop\tester.txt";
-            
-            // native windows save file location option
-            File.WriteAllText(savePath, ConfigClass.TranslatedText);
+            string savePath = @saveDialog.FileName;
 
             // export .txt file
+            File.WriteAllText(savePath, ConfigClass.TranslatedText);
+
 
             // display success message on textbox
 
