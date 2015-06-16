@@ -6,8 +6,8 @@
         <Button Content="AnkiTranslate!" HorizontalAlignment="Left" Height="27" Margin="61,231,0,0" VerticalAlignment="Top" Width="344" Click="Translate_Click" />
         <Label Content="Input .txt file from file editor.  &#xD;&#xA;Add words / phrases you would like added and separate each new &#xD;&#xA;entry with a new line. " HorizontalAlignment="Left" Margin="42,10,0,0" VerticalAlignment="Top" Width="412" Height="56"/>
         <Label Background="DimGray" Name="MsgBoxLabel" Content="" HorizontalAlignment="Left" Margin="61,160,0,0" VerticalAlignment="Top" Height="48" Width="344"/>
-        <ComboBox Loaded="ComboBoxFrom_Loaded" HorizontalAlignment="Left" Margin="61,106,0,0" VerticalAlignment="Top" Width="150"/>
-        <ComboBox Loaded="ComboBoxTo_Loaded" HorizontalAlignment="Left" Margin="255,106,0,0" VerticalAlignment="Top" Width="150" />
+        <ComboBox Name="lanFromComboBox"  Loaded="ComboBoxFrom_Loaded" HorizontalAlignment="Left" Margin="61,106,0,0" VerticalAlignment="Top" Width="150"/>
+        <ComboBox Name="lanToComboBox" Loaded="ComboBoxTo_Loaded" HorizontalAlignment="Left" Margin="255,106,0,0" VerticalAlignment="Top" Width="150" />
         <Label Content="Language From:" HorizontalAlignment="Left" Margin="61,80,0,0" VerticalAlignment="Top" Width="150"/>
         <Label Content="Language To:" HorizontalAlignment="Left" Margin="255,80,0,0" VerticalAlignment="Top" Width="150"/>
 

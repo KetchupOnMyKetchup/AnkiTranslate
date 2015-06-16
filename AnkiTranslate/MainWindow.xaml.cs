@@ -17,6 +17,7 @@ namespace AnkiTranslate
         public MainWindow()
         {
             InitializeComponent();
+
             var languageChoices = new Languages();
             languageChoices.Populate();
         }
@@ -40,13 +41,8 @@ namespace AnkiTranslate
         }
         private void Translate_Click(object sender, RoutedEventArgs e)
         {
-
-            ConfigClass.LanguageTranslatedFrom = "en";
-            ConfigClass.LanguageToTranslateTo = "bg";
-
-            // only allow hit button after to and from language selected
-
-
+            ConfigClass.LanguageTranslatedFrom = lanFromComboBox.Text;
+            ConfigClass.LanguageToTranslateTo = lanToComboBox.Text;
 
             // Create an instance of the open file dialog box + force them to only try and open TXT files!!!
             var openFileDialog = new OpenFileDialog {Filter = "Text Files (.txt)|*.txt", FilterIndex = 1, Multiselect = true};
