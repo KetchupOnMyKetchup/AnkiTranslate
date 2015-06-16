@@ -39,7 +39,7 @@ namespace AnkiTranslate
 
             // User input text to translate plus chosen TO and FROM languages 
             string uri = "http://api.microsofttranslator.com/v2/Http.svc/Translate?text=" +
-                HttpUtility.UrlEncode(ConfigClass.TextToTranslate) + "&from=en&to=es";
+                HttpUtility.UrlEncode(ConfigClass.TextToTranslate) + "&from=" + ConfigClass.LanguageTranslatedFrom + "&to=" + ConfigClass.LanguageToTranslateTo;
             System.Net.WebRequest translationWebRequest = System.Net.WebRequest.Create(uri);
             translationWebRequest.Headers.Add("Authorization", headerValue);
             System.Net.WebResponse response = null;
