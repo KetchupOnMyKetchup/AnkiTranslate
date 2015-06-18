@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 namespace AnkiTranslate
 {
@@ -14,6 +9,16 @@ namespace AnkiTranslate
         public static string TranslatedText { get; set; }
         public static string LanguageToTranslateTo { get; set; }
 
-        public static List<string> Languages { get; set; }
+        public static List<ComboboxItem> Languages { get; set; }
+
+        public class ComboboxItem
+        {
+            public string Text { get; set; }
+            public string Value { get; set; }
+            public override string ToString()
+            {
+                return Text;
+            }
+        }
     }
 }

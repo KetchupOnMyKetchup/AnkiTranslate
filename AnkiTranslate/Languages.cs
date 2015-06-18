@@ -1,38 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace AnkiTranslate
 {
     public class Languages
     {
+        // full list of supported languages here: msdn.microsoft.com/en-us/library/hh456380.aspx
         public void Populate()
         {
-            // initialize and populate new list string
-            ConfigClass.Languages = new List<string>
-            {
-                // full list of choices here: msdn.microsoft.com/en-us/library/hh456380.aspx
-                "ar",
-                "bg",
-                "ca",
-                "zh-CHS",
-                "zh-CHT",
-                "cs",
-                "da",
-                "nl",
-                "en", 
-                "et",
-                "fi",
-                "fr",
-                "es",
-                "pl",
-                "ru",
-                "vi",
-                // Last but not least..ah got some Klingon going on here!!! >.<
-                "tlh"
-            };
+            var en = new ConfigClass.ComboboxItem { Text = "English", Value = "en" };
+            var es = new ConfigClass.ComboboxItem { Text = "Spanish", Value = "es" };
+            var bg = new ConfigClass.ComboboxItem { Text = "Bulgarian", Value = "bg" };
+            var cn = new ConfigClass.ComboboxItem { Text = "Chinese", Value = "zh-CHS" };
+            var tlh = new ConfigClass.ComboboxItem { Text = "Klingon", Value = "tlh" };
+
+            ConfigClass.Languages = new List<ConfigClass.ComboboxItem> {en, es, bg, cn, tlh};
         }
     }
 }
