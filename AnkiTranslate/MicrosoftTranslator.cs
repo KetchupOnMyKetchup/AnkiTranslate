@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Configuration;
 using System.IO;
 using System.Text;
 using System.Web;
@@ -9,13 +10,13 @@ namespace AnkiTranslate
     {
         public string Translate()
         {
-            const string clientID = "AnkiTranslator";
-            const string clientSecret = "ctuTm9MHBBlJdhr9zRmCIuKbTfxeb/RxhFXKNKZ7r+s=";
-            const string strTranslatorAccessURI = "https://datamarket.accesscontrol.windows.net/v2/OAuth2-13";
+            string clientId = ConfigurationManager.AppSettings["clientID"];
+            string clientSecret = ConfigurationManager.AppSettings["clientSecret"];
+            string strTranslatorAccessUri = ConfigurationManager.AppSettings["strTranslatorAccessURI"]; 
 
-            String strRequestDetails = string.Format("grant_type=client_credentials&client_id={0}&client_secret={1}&scope=http://api.microsofttranslator.com", HttpUtility.UrlEncode(clientID), HttpUtility.UrlEncode(clientSecret));
+            String strRequestDetails = string.Format("grant_type=client_credentials&client_id={0}&client_secret={1}&scope=http://api.microsofttranslator.com", HttpUtility.UrlEncode(clientId), HttpUtility.UrlEncode(clientSecret));
 
-            System.Net.WebRequest webRequest = System.Net.WebRequest.Create(strTranslatorAccessURI);
+            System.Net.WebRequest webRequest = System.Net.WebRequest.Create(strTranslatorAccessUri);
             webRequest.ContentType = "application/x-www-form-urlencoded";
             webRequest.Method = "POST";
 

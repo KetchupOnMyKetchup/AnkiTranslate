@@ -52,13 +52,23 @@ namespace AnkiTranslate
 
             ConfigClass.TranslatedText = new MicrosoftTranslator().Translate();
 
+            // DOWORK to make anki format
+            string[] textToTranslateArray = ConfigClass.TextToTranslate.Split(new string[] { "\r\n", "\n" }, StringSplitOptions.None);
+            string[] translatedTextArray = ConfigClass.TranslatedText.Split(new string[] { "\r\n", "\n" }, StringSplitOptions.None);
+            string finalText = "";
+
+            for (int i = 0; i < textToTranslateArray.Length - 1; i++)
+            {
+                finalText += textToTranslateArray[i] + "\t" + translatedTextArray[i] + System.Environment.NewLine;
+            }
+
             var saveDialog = new SaveFileDialog { Filter = "Text Files (.txt)|*.txt", FilterIndex = 1};
             bool? userSaveConfirmation = saveDialog.ShowDialog();
 
             if (userSaveConfirmation != true) return;
             string savePath = @saveDialog.FileName;
 
-            File.WriteAllText(savePath, ConfigClass.TranslatedText);
+            File.WriteAllText(savePath, finalText);
             MsgBoxLabel.Content = "Successfully saved to: " + saveDialog.FileName;
         }
     }
